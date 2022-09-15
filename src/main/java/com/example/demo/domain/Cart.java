@@ -1,5 +1,6 @@
 package com.example.demo.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -16,18 +17,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cart {
+public class Cart implements Serializable{
+	
+	public static final long serialVersionUID = -2228784815938588107L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int id;
-	
-	/*
-	 * @OneToMany(mappedBy = "cart") public List<CartProduct> cartProduct;
-	 */
-	
-	
-	
-	
-	
+
 }
