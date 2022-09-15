@@ -3,7 +3,6 @@ package com.example.demo.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.domain.Cart;
@@ -23,22 +22,15 @@ public class CartProductService {
 	@Autowired
 	ProductRepository productRepository;
 
-	/*
-    public List<CartProduct> getAllProducts() {
-    return cartProductRepository.findAll();
-    }
-
-    public List<CartProduct> getCart(int cardId) {
-	   return cartProductRepository.findAllByCartId(cardId);
-    }
-
-	 */
-
+	public List<CartProduct> getAllProducts() {
+		return cartProductRepository.findAll();
+	}
 
     public List<CartProduct> getCart(long userId) {
 		int cartId = userRepo.findById(userId).get().getCart().getId();
 		return cartProductRepository.findAllByCartId(cartId);
 	}
+    
     public int getCardTotal(int cardId) {
 	    int t=0;
 	    List<CartProduct> products=cartProductRepository.findAllByCartId(cardId);
@@ -84,7 +76,8 @@ public class CartProductService {
 				cartProductRepository.save(cartProduct);
 			} else {
 				int oldQuantity = cartProduct.getQuantity();
-				cartProduct.setQuantity(oldQuantity + newQuantity);
+				cartProduct.setQuantity(oldQuantity + newQuantity);	
+				cartProductRepository.save(cartProduct);
 			}
 			
 		}
@@ -97,10 +90,6 @@ public class CartProductService {
 	public void deleteCart(Long userId) {
 		int cartId = userRepo.findById(userId).get().getCart().getId();
 		cartProductRepository.deleteByCart_id(cartId);
-		/*
-		 * List<CartProduct> cartList = cartProductRepository.findAllByCartId(cartId);
-		 * for(CartProduct cProduct: cartList) { cartList.remove(cProduct); }
-		 */
 		
 	}
 	
