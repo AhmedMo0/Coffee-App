@@ -1,5 +1,7 @@
 package com.example.demo.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +15,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Product {
+public class Product implements Serializable{
+	
+	public static final long serialVersionUID = -2228784815938588107L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,17 +26,10 @@ public class Product {
 	public int productPrice;
 	public String ProductImage;
 	public int productSugarSpoon;
-	
 	public boolean isAddedToCart;
 	public int boughtItemsCount;
 	public int productStockQuantity;
-	 
 	public String ProductCategory;
 	
-	
-	
-	/*
-	 * @OneToMany(mappedBy = "product") public List<CartProduct> cartProduct;
-	 */
 	
 }
