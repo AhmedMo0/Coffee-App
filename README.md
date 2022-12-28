@@ -3,7 +3,7 @@
 
 * Enables customers to choose/buy the products they want from different categories.
 * Enables app admins to add/remove/update products.
-* Email and Password based Authentication.
+* Email and Password based JWT Authentication.
 * Error and Exception handling.
 
 
@@ -14,4 +14,4 @@
 
 * Programming language: Java.
 * Backend Framework: Spring (Spring boot, Spring Data JPA, Spring Security).
-* Database: MySql.
+* Database: PostgreSQL & Redis .
