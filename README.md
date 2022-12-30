@@ -10,6 +10,7 @@
 ## Database Design
 ![CafeAppERD](https://user-images.githubusercontent.com/44905137/209792351-ed639a9d-6d6d-427d-ac19-20e92952bb18.png)
 
+## [API endpoints documentation](https://app.swaggerhub.com/apis-docs/AHMEDDESWAQ_1/CafeApp/v3.1)
 ## Tech Stack
 
 * Programming language: Java.
